@@ -1,0 +1,210 @@
+{
+  "neuf": {
+    "chariot_electrique": [
+      {
+        "title": "Chariot élévateur électrique 3 roues",
+        "href": "/neuf/chariot-electrique-3-roues",
+        "image": "https://www.yale.com/-/media/yale/forklifts/3-wheel-electric-forklift/erp15-20vt-01.jpg"
+      },
+      {
+        "title": "Chariot élévateur électrique 4 roues",
+        "href": "/neuf/chariot-electrique-4-roues",
+        "image": "https://www.toyotaforklift.com/-/media/toyota/product-images/electric-forklifts/core-electric-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur électrique compact",
+        "href": "/neuf/chariot-electrique-compact",
+        "image": "https://www.dflift.com/wp-content/uploads/2020/11/3-Wheel-Electric-Forklifts-1.jpg"
+      }
+    ],
+    "installation": [
+      {
+        "title": "Système de rayonnage léger",
+        "href": "/neuf/installation-rayonnage-leger",
+        "image": "https://www.storagemotions.com/wp-content/uploads/2019/02/light-duty-shelving.jpg"
+      },
+      {
+        "title": "Rayonnage à palettes",
+        "href": "/neuf/installation-rayonnage-palettes",
+        "image": "https://www.cisco-eagle.com/images/products/pallet-rack/standard-pallet-rack.jpg"
+      },
+      {
+        "title": "Plateforme de stockage",
+        "href": "/neuf/installation-plateforme-stockage",
+        "image": "https://www.mezzaninesonline.com/images/mezzanine-floor.jpg"
+      }
+    ],
+    "nacelle": [
+      {
+        "title": "Nacelle articulée électrique",
+        "href": "/neuf/nacelle-articulee-electrique",
+        "image": "https://www.genielift.com/-/media/genie/products/aerial-lifts/articulated-boom-lifts/z-45-xc/z-45-xc-hero.jpg"
+      },
+      {
+        "title": "Nacelle à mât vertical",
+        "href": "/neuf/nacelle-mat-vertical",
+        "image": "https://www.jlg.com/-/media/jlg/products/aerial-work-platforms/vertical-mast-lifts/toucan-10e/toucan-10e-hero.jpg"
+      },
+      {
+        "title": "Nacelle ciseaux",
+        "href": "/neuf/nacelle-ciseaux",
+        "image": "https://www.skyjack.com/-/media/skyjack/products/scissor-lifts/sjiii-3219/sjiii-3219-hero.jpg"
+      }
+    ],
+    "transpalette": [
+      {
+        "title": "Transpalette manuel",
+        "href": "/neuf/transpalette-manuel",
+        "image": "https://www.crown.com/-/media/crown/products/pallet-trucks/wpt-series/wpt-series-pallet-truck.jpg"
+      },
+      {
+        "title": "Transpalette électrique",
+        "href": "/neuf/transpalette-electrique",
+        "image": "https://www.yale.com/-/media/yale/pallet-trucks/mp16-22/mp16-22-01.jpg"
+      },
+      {
+        "title": "Transpalette à haute levée",
+        "href": "/neuf/transpalette-haute-levee",
+        "image": "https://www.toyotaforklift.com/-/media/toyota/product-images/pallet-trucks/high-lift-pallet-truck.jpg"
+      }
+    ],
+    "gerbeur": [
+      {
+        "title": "Gerbeur manuel",
+        "href": "/neuf/gerbeur-manuel",
+        "image": "https://www.dflift.com/wp-content/uploads/2020/11/Manual-Stacker.jpg"
+      },
+      {
+        "title": "Gerbeur électrique",
+        "href": "/neuf/gerbeur-electrique",
+        "image": "https://www.jungheinrich.co.uk/-/media/jungheinrich/products/stackers/erc-212-216/erc-212-216-hero.jpg"
+      },
+      {
+        "title": "Gerbeur à contrepoids",
+        "href": "/neuf/gerbeur-contrepoids",
+        "image": "https://www.dflift.com/wp-content/uploads/2020/11/Out-Door-Counterbalance-Stacker.jpg"
+      }
+    ],
+    "chariot_thermique": [
+      {
+        "title": "Chariot élévateur diesel",
+        "href": "/neuf/chariot-thermique-diesel",
+        "image": "https://www.hyster.com/-/media/hyster/forklifts/diesel-forklifts/h2-0-3-5xt/h2-0-3-5xt-01.jpg"
+      },
+      {
+        "title": "Chariot élévateur gaz",
+        "href": "/neuf/chariot-thermique-gaz",
+        "image": "https://www.toyotaforklift.com/-/media/toyota/product-images/forklifts/lpg-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur tout-terrain",
+        "href": "/neuf/chariot-thermique-tout-terrain",
+        "image": "https://www.jcb.com/-/media/jcb/products/teletruks/tlt-35d-4x4/tlt-35d-4x4-hero.jpg"
+      }
+    ]
+  },
+  "occasion": {
+    "chariot_electrique": [
+      {
+        "title": "Chariot élévateur électrique 3 roues d’occasion",
+        "href": "/occasion/chariot-electrique-3-roues",
+        "image": "https://www.eliftruck.com/-/media/eliftruck/used-forklifts/3-wheel-electric/used-3-wheel-electric-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur électrique 4 roues d’occasion",
+        "href": "/occasion/chariot-electrique-4-roues",
+        "image": "https://www.totalwarehouse.com/-/media/totalwarehouse/used-forklifts/4-wheel-electric/used-4-wheel-electric-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur électrique compact d’occasion",
+        "href": "/occasion/chariot-electrique-compact",
+        "image": "https://www.forklift-international.com/-/media/forklift/used-compact-electric/used-compact-electric-forklift.jpg"
+      }
+    ],
+    "installation": [
+      {
+        "title": "Rayonnage léger d’occasion",
+        "href": "/occasion/installation-rayonnage-leger",
+        "image": "https://www.usedracking.com/-/media/usedracking/light-shelving/used-light-shelving.jpg"
+      },
+      {
+        "title": "Rayonnage à palettes d’occasion",
+        "href": "/occasion/installation-rayonnage-palettes",
+        "image": "https://www.warehouserack.com/-/media/warehouserack/used-pallet-rack/used-pallet-rack.jpg"
+      },
+      {
+        "title": "Plateforme de stockage d’occasion",
+        "href": "/occasion/installation-plateforme-stockage",
+        "image": "https://www.mezzanineused.com/-/media/mezzanineused/used-mezzanine/used-storage-platform.jpg"
+      }
+    ],
+    "nacelle": [
+      {
+        "title": "Nacelle articulée électrique d’occasion",
+        "href": "/occasion/nacelle-articulee-electrique",
+        "image": "https://www.unitedrentals.com/-/media/unitedrentals/used-equipment/articulated-boom/used-electric-articulated-boom.jpg"
+      },
+      {
+        "title": "Nacelle à mât vertical d’occasion",
+        "href": "/occasion/nacelle-mat-vertical",
+        "image": "https://www.accesshire.net/-/media/accesshire/used-vertical-mast/used-vertical-mast-lift.jpg"
+      },
+      {
+        "title": "Nacelle ciseaux d’occasion",
+        "href": "/occasion/nacelle-ciseaux",
+        "image": "https://www.sunbeltrentals.com/-/media/sunbeltrentals/used-scissor-lift/used-scissor-lift.jpg"
+      }
+    ],
+    "transpalette": [
+      {
+        "title": "Transpalette manuel d’occasion",
+        "href": "/occasion/transpalette-manuel",
+        "image": "https://www.eliftruck.com/-/media/eliftruck/used-pallet-trucks/used-manual-pallet-truck.jpg"
+      },
+      {
+        "title": "Transpalette électrique d’occasion",
+        "href": "/occasion/transpalette-electrique",
+        "image": "https://www.forklift-international.com/-/media/forklift/used-electric-pallet/used-electric-pallet-truck.jpg"
+      },
+      {
+        "title": "Transpalette à haute levée d’occasion",
+        "href": "/occasion/transpalette-haute-levee",
+        "image": "https://www.totalwarehouse.com/-/media/totalwarehouse/used-high-lift/used-high-lift-pallet-truck.jpg"
+      }
+    ],
+    "gerbeur": [
+      {
+        "title": "Gerbeur manuel d’occasion",
+        "href": "/occasion/gerbeur-manuel",
+        "image": "https://www.usedforklift.com/-/media/usedforklift/used-manual-stacker/used-manual-stacker.jpg"
+      },
+      {
+        "title": "Gerbeur électrique d’occasion",
+        "href": "/occasion/gerbeur-electrique",
+        "image": "https://www.eliftruck.com/-/media/eliftruck/used-stackers/used-electric-stacker.jpg"
+      },
+      {
+        "title": "Gerbeur à contrepoids d’occasion",
+        "href": "/occasion/gerbeur-contrepoids",
+        "image": "https://www.forklift-international.com/-/media/forklift/used-counterbalance-stacker/used-counterbalance-stacker.jpg"
+      }
+    ],
+    "chariot_thermique": [
+      {
+        "title": "Chariot élévateur diesel d’occasion",
+        "href": "/occasion/chariot-thermique-diesel",
+        "image": "https://www.totalwarehouse.com/-/media/totalwarehouse/used-forklifts/diesel/used-diesel-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur gaz d’occasion",
+        "href": "/occasion/chariot-thermique-gaz",
+        "image": "https://www.eliftruck.com/-/media/eliftruck/used-forklifts/gas/used-gas-forklift.jpg"
+      },
+      {
+        "title": "Chariot élévateur tout-terrain d’occasion",
+        "href": "/occasion/chariot-thermique-tout-terrain",
+        "image": "https://www.forklift-international.com/-/media/forklift/used-rough-terrain/used-rough-terrain-forklift.jpg"
+      }
+    ]
+  }
+}
