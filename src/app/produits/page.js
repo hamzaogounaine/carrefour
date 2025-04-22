@@ -72,7 +72,7 @@ const Page = () => {
                 <Card className="h-full border shadow-sm hover:shadow-md transition-shadow flex flex-col">
                   <CardContent className="p-4 flex-grow">
                     <div className="aspect-square relative mb-3 bg-gray-100 rounded-md overflow-hidden">
-                      <Image
+                      <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.title}
                         fill
