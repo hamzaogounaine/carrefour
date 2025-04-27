@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CardsSkeleton = ({key}) => {
+const CardsSkeleton = () => {
   return (
-    <div key={key}>
+    <div>
       <div className="flex flex-col gap-4">
         <div className="aspect-square relative rounded-lg overflow-hidden">
           <div className="w-full h-full animate-pulse bg-muted"></div>
