@@ -3,7 +3,7 @@ import clientPromise from '@/lib/mongo';
 
 export async function POST(request) {
     try {
-        const { name, email, phone, message } = await request.json();
+        const { name, email, phone, message, object, product } = await request.json();
 
         // Validate required fields
         if (!name || !email || !phone || !message) {
@@ -23,6 +23,8 @@ export async function POST(request) {
             phone,
             content: message,
             createdAt: new Date(),
+            object: object,
+            product: product,
             read: false
         };
 

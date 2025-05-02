@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{indentfirst}
+
+% Page setup
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Header and footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title formatting
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-30pt}{40pt}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Huge\bfseries Rapport de Stage\par}
+    \vspace{2cm}
+    {\Large\itshape Développement d'une Application Web E-commerce\par}
+    \vspace{2cm}
+    {\Large\bfseries Hamza\par}
+    \vspace{1cm}
+    {\large Master en Informatique\par}
+    \vspace{1cm}
+    {\large Université Paris-Saclay\par}
+    \vspace{2cm}
+    {\large Stage effectué du 1er Mars 2024 au 31 Août 2024\par}
+    \vspace{2cm}
+    {\large Carrefour\par}
+    {\large 33 Avenue des Champs-Élysées, 75008 Paris\par}
+    \vspace{2cm}
+    {\large Année Universitaire 2023-2024\par}
+\end{titlepage}
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Introduction
+\chapter{Introduction}
+\input{chapters/introduction}
+
+% Company presentation
+\chapter{Présentation de l'Entreprise}
+\input{chapters/entreprise}
+
+% Mission description
+\chapter{Description de la Mission}
+\input{chapters/mission}
+
+% Technical aspects
+\chapter{Aspects Techniques}
+\input{chapters/technique}
+
+% Conclusion
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+% Bibliography
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+% Annexes
+\appendix
+\chapter{Annexes}
+\input{chapters/annexes}
+
+\end{document} 

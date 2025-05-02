@@ -57,7 +57,7 @@ const Page = () => {
                         
                         {/* Product Image */}
                         <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
-                            <Image 
+                            <img 
                                 src={product.image}
                                 alt={product.title}
                                 className="object-contain w-full h-full"
@@ -134,7 +134,7 @@ const Page = () => {
                         </div>
                     </div>
                 </div>
-                <Link href="/contact" className="sticky bottom-0 right-0 mt-8 flex justify-end">
+                <Link href={`/reserve/${id}`} className="sticky bottom-0 right-0 mt-8 flex justify-end">
                     <Button size='lg' className="flex bg-primary text-white hover:bg-primary/90">
                         Réserver
                         <CalendarDaysIcon />

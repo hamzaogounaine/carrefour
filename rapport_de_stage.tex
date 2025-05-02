@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{report}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+% Page geometry
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm
+}
+
+% Header and footer configuration
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{Rapport de Stage}
+
+% Title page configuration
+\title{
+    \huge\textbf{Rapport de Stage}\\
+    \vspace{1cm}
+    \Large{Nom de l'entreprise}\\
+    \vspace{0.5cm}
+    \large{Période du stage: XX/XX/XXXX au XX/XX/XXXX}
+}
+
+\author{
+    \Large{Prénom NOM}\\
+    \vspace{0.3cm}
+    \large{Formation / Niveau d'études}\\
+    \vspace{0.3cm}
+    \large{Établissement}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Abstract / Résumé
+\begin{abstract}
+    \noindent Ce rapport présente le stage effectué au sein de [Nom de l'entreprise] durant [période]. 
+    Il détaille les missions réalisées, les compétences acquises ainsi que les objectifs atteints 
+    pendant cette période de formation professionnelle.
+\end{abstract}
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Remerciements
+\chapter*{Remerciements}
+Je tiens à remercier...
+\newpage
+
+% Introduction
+\chapter{Introduction}
+\section{Contexte du stage}
+\section{Présentation de l'entreprise}
+\section{Objectifs du stage}
+
+% Corps du rapport
+\chapter{Présentation de l'entreprise}
+\section{Histoire et activités}
+\section{Organisation}
+\section{Secteur d'activité}
+
+\chapter{Missions et tâches réalisées}
+\section{Mission principale}
+\section{Tâches quotidiennes}
+\section{Projets spécifiques}
+
+\chapter{Compétences acquises}
+\section{Compétences techniques}
+\section{Compétences transversales}
+\section{Savoir-être}
+
+\chapter{Analyse et réflexion}
+\section{Difficultés rencontrées}
+\section{Solutions apportées}
+\section{Bilan personnel}
+
+% Conclusion
+\chapter{Conclusion}
+\section{Bilan du stage}
+\section{Perspectives}
+
+% Bibliographie
+\bibliographystyle{plain}
+\bibliography{references}
+
+% Annexes
+\appendix
+\chapter{Annexes}
+\section{Documents complémentaires}
+\section{Glossaire}
+
+\end{document} 
