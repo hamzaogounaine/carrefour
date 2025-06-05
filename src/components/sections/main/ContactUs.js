@@ -10,7 +10,23 @@ const ContactUs = ({ product }) => {
     phone: '',
     message: '',
     object: product ? 'Réservation' : 'Message',
-    product: product && product._id
+    product: {
+  "title": "Chariot élévateur gaz",
+  "href": "/neuf/chariot-thermique-gaz",
+  "image": "https://dhl-freight-connections.com/wp-content/uploads/2024/04/forklift-1-1.png",
+  "categorie": "chariot_thermique",
+  "fiche_technique": {
+    "type_modèle": "Chariot élévateur gaz générique",
+    "source_énergie": "Gaz (GPL)",
+    "capacité_charge": "2000–5000 kg",
+    "hauteur_levage": "Jusqu'à 7000 mm",
+    "dimensions": "3800 x 1300 x 2200 mm",
+    "poids": "4000–6000 kg",
+    "rayon_virage": "2400 mm",
+    "caractéristiques_principales": "Moteur à faible émission, adapté intérieur/extérieur, cabine ergonomique, entretien facile",
+    "applications": "Entrepôts, logistique, manutention polyvalente"
+  }
+}
   })
 
   const handleSubmit = (e) => {
