@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import Image from 'next/image'
 import Layout from '@/components/layout'
 import { CalendarDaysIcon, ChevronDown, ChevronUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -25,7 +24,7 @@ interface Product {
   id: string
   title: string
   categorie: string
-  image: string
+  image?: string
   fiche_technique?: FicheTechnique
 }
 
@@ -102,12 +101,12 @@ const Page = () => {
               {/* Product Image */}
               <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
                 <img
-                  src={'https://www.bouchard-manutention.com/app/uploads/2018/12/manitou-chariot-tout-terrain-a.jpg'}
+                  src={product.image || 'https://www.bouchard-manutention.com/app/uploads/2018/12/manitou-chariot-tout-terrain-a.jpg'}
                   alt={product.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain"
-                  priority
+                  className="object-contain w-full h-full"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg'
+                  }}
                 />
               </div>
 
