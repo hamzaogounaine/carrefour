@@ -185,7 +185,7 @@ const Page = () => {
             </div>
           </div>
           <div className="sticky bottom-4 right-4 mt-8 flex justify-end">
-            <Link href={`/reserve/${id}`}>
+            <Link href={`/reserver/${id}`}>
               <Button size="lg" className="flex items-center gap-2 bg-primary text-white hover:bg-primary/90">
                 Réserver
                 <CalendarDaysIcon className="w-5 h-5" />
