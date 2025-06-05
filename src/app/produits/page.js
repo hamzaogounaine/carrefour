@@ -58,7 +58,7 @@ const Page = () => {
                     <CardsSkeleton />
                   </CarouselItem>
                 ))
-              ) : (
+              ) : (neufProducts &&
                 neufProducts.map((product, i) => (
                   <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <Link href={product.href}>
@@ -115,7 +115,7 @@ const Page = () => {
                     <CardsSkeleton />
                   </CarouselItem>
                 ))
-              ) : (
+              ) : (occasionProducts &&
                 occasionProducts.map((product, i) => (
                   <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <Link href={product.href}>
