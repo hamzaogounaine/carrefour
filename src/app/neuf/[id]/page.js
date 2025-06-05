@@ -104,9 +104,7 @@ const Page = () => {
                   src={product.image || 'https://www.bouchard-manutention.com/app/uploads/2018/12/manitou-chariot-tout-terrain-a.jpg'}
                   alt={product.title}
                   className="object-contain w-full h-full"
-                  onError={(e) => {
-                    e.currentTarget.src = '/placeholder.svg'
-                  }}
+                 
                 />
               </div>
 
