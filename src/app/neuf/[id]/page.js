@@ -102,7 +102,7 @@ const Page = () => {
               {/* Product Image */}
               <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
                 <img
-                  src={product.image || '/placeholder.svg'}
+                  src={'https://www.bouchard-manutention.com/app/uploads/2018/12/manitou-chariot-tout-terrain-a.jpg'}
                   alt={product.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
