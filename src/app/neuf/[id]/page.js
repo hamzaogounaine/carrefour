@@ -187,7 +187,7 @@ const Page = () => {
           <div className="sticky bottom-4 right-4 mt-8 flex justify-end">
             <Link href={`/reserver/${id}`}>
               <Button size="lg" className="flex items-center gap-2 bg-primary text-white hover:bg-primary/90">
-                Réserver
+                Réserver ce produit
                 <CalendarDaysIcon className="w-5 h-5" />
               </Button>
             </Link>
