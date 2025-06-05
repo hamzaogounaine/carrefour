@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
@@ -8,141 +8,197 @@ import { CalendarDaysIcon, ChevronDown, ChevronUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
+// Define interfaces for type safety
+interface FicheTechnique {
+  type_modèle?: string
+  source_énergie?: string
+  capacité_charge?: string
+  hauteur_levage?: string
+  dimensions?: string
+  poids?: string
+  rayon_virage?: string
+  caractéristiques_principales?: string
+  applications?: string
+}
+
+interface Product {
+  id: string
+  title: string
+  categorie: string
+  image: string
+  fiche_technique?: FicheTechnique
+}
+
 const Page = () => {
-    const { id } = useParams()
-    const [product, setProduct] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    const [showFicheTechnique, setShowFicheTechnique] = useState(false)
+  const { id } = useParams()
+  const [product, setProduct] = useState<Product | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [showFicheTechnique, setShowFicheTechnique] = useState(false)
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`/api/neuf/${id}`)
-                const data = await response.json()
-                console.log('data', data)
-                setProduct(data)
-                setLoading(false)
-            } catch (err) {
-                setError(err.message)
-                setLoading(false)
-            }
+  useEffect(() => {
+    const fetchProduct = async () => {
+      if (!id) {
+        setError('Invalid product ID')
+        setLoading(false)
+        return
+      }
+
+      try {
+        const response = await fetch(`/api/neuf/${id}`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch product')
         }
-        fetchProduct()
-    }, [id])
+        const data = await response.json()
+        if (!data) {
+          throw new Error('No product data received')
+        }
+        setProduct(data)
+        setLoading(false)
+      } catch (err: any) {
+        setError(err.message || 'An error occurred while fetching the product')
+        setLoading(false)
+      }
+    }
+    fetchProduct()
+  }, [id])
 
-    if (loading) return (
-        <div className="flex justify-center items-center min-h-screen">
-            Loading...
-        </div>
-    )
-
-    if (error) return (
-        <div className="flex justify-center items-center min-h-screen text-red-500">
-            Error: {error}
-        </div>
-    )
-
-    if (!product) return (
-        <div className="flex justify-center items-center min-h-screen">
-            No product found
-        </div>
-    )
-
+  if (loading) {
     return (
-        <div className="min-h-screen bg-gray-50 py-16 ">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                    <div className="grid md:grid-cols-2 gap-12 p-8">
-                        
-                        {/* Product Image */}
-                        <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
-                            <img 
-                                src={product.image}
-                                alt={product.title}
-                                className="object-contain w-full h-full"
-                            />
-                        </div>
-
-                        {/* Product Details */}
-                        <div className="space-y-8">
-                            <div>
-                                <h1 className="text-4xl font-bold text-gray-900 mb-3">
-                                    {product.title}
-                                </h1>
-                                <p className="text-lg text-gray-600">
-                                    Catégorie: {product.categorie}
-                                </p>
-                            </div>
-                            
-                            {/* Technical Specifications */}
-                            <div className="border-t border-gray-200 pt-8">
-                                <div 
-                                    className="flex items-center justify-between cursor-pointer" 
-                                    onClick={() => setShowFicheTechnique(!showFicheTechnique)}
-                                >
-                                    <h2 className="text-2xl font-semibold">
-                                        Fiche Technique
-                                    </h2>
-                                    {showFicheTechnique ? (
-                                        <ChevronUp className="w-6 h-6" />
-                                    ) : (
-                                        <ChevronDown className="w-6 h-6" />
-                                    )}
-                                </div>
-                                
-                                {showFicheTechnique && product.fiche_technique && (
-                                    <div className="grid gap-6 mt-6">
-                                        {[
-                                            ['Type Modèle', product.fiche_technique.type_modèle],
-                                            ['Source Énergie', product.fiche_technique.source_énergie],
-                                            ['Capacité de Charge', product.fiche_technique.capacité_charge],
-                                            ['Hauteur de Levage', product.fiche_technique.hauteur_levage],
-                                            ['Dimensions', product.fiche_technique.dimensions],
-                                            ['Poids', product.fiche_technique.poids],
-                                            ['Rayon de Virage', product.fiche_technique.rayon_virage]
-                                        ].map(([label, value]) => (
-                                            <div key={label} className="grid grid-cols-2 gap-4 py-2 border-b border-gray-100">
-                                                <span className="font-medium text-gray-700">{label}</span>
-                                                <span className="text-gray-600">{value}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Main Features */}
-                            <div className="space-y-6">
-                                <div>
-                                    <h3 className="text-xl font-semibold mb-3">
-                                        Caractéristiques Principales
-                                    </h3>
-                                    <p className="text-gray-700 leading-relaxed">
-                                        {product.fiche_technique?.caractéristiques_principales}
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-xl font-semibold mb-3">
-                                        Applications
-                                    </h3>
-                                    <p className="text-gray-700 leading-relaxed">
-                                        {product.fiche_technique?.applications}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <Link href={`/reserve/${id}`} className="sticky bottom-0 right-0 mt-8 flex justify-end">
-                    <Button size='lg' className="flex bg-primary text-white hover:bg-primary/90">
-                        Réserver
-                        <CalendarDaysIcon />
-                    </Button>
-                </Link>
-            </div>
+      <Layout>
+        <div className="flex justify-center items-center min-h-screen">
+          Loading...
         </div>
+      </Layout>
     )
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <div className="flex justify-center items-center min-h-screen text-red-500">
+          Error: {error}
+        </div>
+      </Layout>
+    )
+  }
+
+  if (!product) {
+    return (
+      <Layout>
+        <div className="flex justify-center items-center min-h-screen">
+          No product found
+        </div>
+      </Layout>
+    )
+  }
+
+  return (
+    <Layout>
+      <div className="min-h-screen bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-12 p-8">
+              {/* Product Image */}
+              <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
+                <Image
+                  src={product.image || '/placeholder.svg'}
+                  alt={product.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              {/* Product Details */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-4xl font-bold text-gray-900 mb-3">
+                    {product.title}
+                  </h1>
+                  <p className="text-lg text-gray-600">
+                    Catégorie: {product.categorie}
+                  </p>
+                </div>
+
+                {/* Technical Specifications */}
+                <div className="border-t border-gray-200 pt-8">
+                  <div
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => setShowFicheTechnique(!showFicheTechnique)}
+                  >
+                    <h2 className="text-2xl font-semibold">
+                      Fiche Technique
+                    </h2>
+                    {showFicheTechnique ? (
+                      <ChevronUp className="w-6 h-6" />
+                    ) : (
+                      <ChevronDown className="w-6 h-6" />
+                    )}
+                  </div>
+
+                  {showFicheTechnique && product.fiche_technique && (
+                    <div className="grid gap-6 mt-6">
+                      {[
+                        { label: 'Type Modèle', value: product.fiche_technique.type_modèle },
+                        { label: 'Source Énergie', value: product.fiche_technique.source_énergie },
+                        { label: 'Capacité de Charge', value: product.fiche_technique.capacité_charge },
+                        { label: 'Hauteur de Levage', value: product.fiche_technique.hauteur_levage },
+                        { label: 'Dimensions', value: product.fiche_technique.dimensions },
+                        { label: 'Poids', value: product.fiche_technique.poids },
+                        { label: 'Rayon de Virage', value: product.fiche_technique.rayon_virage },
+                      ].map(({ label, value }, index) => (
+                        value && (
+                          <div key={`${label}-${index}`} className="grid grid-cols-2 gap-4 py-2 border-b border-gray-100">
+                            <span className="font-medium text-gray-700">{label}</span>
+                            <span className="text-gray-600">{value}</span>
+                          </div>
+                        )
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Main Features */}
+                <div className="space-y-6">
+                  {product.fiche_technique?.caractéristiques_principales && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3">
+                        Caractéristiques Principales
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {product.fiche_technique.caractéristiques_principales}
+                      </p>
+                    </div>
+                  )}
+
+                  {product.fiche_technique?.applications && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3">
+                        Applications
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {product.fiche_technique.applications}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="sticky bottom-4 right-4 mt-8 flex justify-end">
+            <Link href={`/reserve/${id}`}>
+              <Button size="lg" className="flex items-center gap-2 bg-primary text-white hover:bg-primary/90">
+                Réserver
+                <CalendarDaysIcon className="w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  )
 }
 
 export default Page
