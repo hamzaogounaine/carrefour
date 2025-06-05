@@ -101,7 +101,7 @@ const Page = () => {
             <div className="grid md:grid-cols-2 gap-12 p-8">
               {/* Product Image */}
               <div className="relative h-[500px] bg-gray-100 rounded-xl overflow-hidden">
-                <Image
+                <img
                   src={product.image || '/placeholder.svg'}
                   alt={product.title}
                   fill
