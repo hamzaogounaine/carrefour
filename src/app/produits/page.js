@@ -1,7 +1,6 @@
 "use client"
 import Layout from '@/components/layout'
 import React, { useEffect, useState } from 'react'
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -10,35 +9,69 @@ import { Badge } from "@/components/ui/badge"
 import { Home, ShoppingCart } from 'lucide-react'
 import CardsSkeleton from '@/components/ui/CardsSkeleton'
 
+// Define product type for better type safety
+interface Product {
+  id: string;
+  title: string;
+  href: string;
+  image?: string;
+  categorie: string;
+}
+
 const Page = () => {
-  const [neufProducts, setNeufProducts] = useState([])
-  const [occasionProducts, setOccasionProducts] = useState([])
+  const [neufProducts, setNeufProducts] = useState<Product[]>([])
+  const [occasionProducts, setOccasionProducts] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('/api/neuf_products')
-      const data = await response.json()
-      setNeufProducts(data)
-      const response2 = await fetch('/api/occasion_products')
-      const data2 = await response2.json()
-      setOccasionProducts(data2)
-      setIsLoading(false)
+      try {
+        setIsLoading(true)
+        const [neufResponse, occasionResponse] = await Promise.all([
+          fetch('/api/neuf_products'),
+          fetch('/api/occasion_products')
+        ])
+
+        if (!neufResponse.ok || !occasionResponse.ok) {
+          throw new Error('Failed to fetch products')
+        }
+
+        const [neufData, occasionData] = await Promise.all([
+          neufResponse.json(),
+          occasionResponse.json()
+        ])
+
+        setNeufProducts(neufData)
+        setOccasionProducts(occasionData)
+      } catch (err) {
+        setError('Failed to load products. Please try again later.')
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
     }
     fetchProducts()
   }, [])
 
-  return (
-    <div>
-      <div className="w-full max-w-7xl mx-auto py-12 px-4 space-y-16">
+  if (error) {
+    return (
+      <Layout>
+        <div className="w-full max-w-7xl mx-auto py-12 px-4">
+          <p className="text-red-500">{error}</p>
+        </div>
+      </Layout>
+    )
+  }
 
+  return (
+    <Layout>
+      <div className="w-full max-w-7xl mx-auto py-12 px-4 space-y-16">
         {/* New Products Section */}
         <section>
           <div className='flex items-center gap-2 mb-5 hover:text-red-500 cursor-pointer transition-all duration-300'>
             <Home className='w-5 h-5' />
-            <Link href="/">
-              Accueil
-            </Link>
+            <Link href="/">Accueil</Link>
           </div>
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -50,17 +83,17 @@ const Page = () => {
             </Link>
           </div>
 
-          <Carousel className="w-full mx-[-16px] px-[16px] border-r-2 rounded" opts={{ align: "start" }}>
+          <Carousel className="w-full" opts={{ align: "start", dragFree: true }}>
             <CarouselContent>
               {isLoading ? (
                 Array.from({ length: 5 }).map((_, i) => (
-                  <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <CarouselItem key={`skeleton-neuf-${i}`} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <CardsSkeleton />
                   </CarouselItem>
                 ))
-              ) : (neufProducts &&
-                neufProducts.map((product, i) => (
-                  <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+              ) : (
+                neufProducts.map((product) => (
+                  <CarouselItem key={product.id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <Link href={product.href}>
                       <Card className="h-full border shadow-sm hover:shadow-md transition-shadow flex flex-col">
                         <CardContent className="p-4 flex-grow">
@@ -99,25 +132,25 @@ const Page = () => {
         <section>
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight">Produits d&apos;Occasion</h2>
+              <h2 className="text-2xl font-bold tracking-tight">Produits d'Occasion</h2>
               <p className="text-gray-500 mt-1">Des équipements reconditionnés à prix avantageux</p>
             </div>
             <Link href="/occasion" className="text-sm font-medium text-primary hover:underline">
-              Voir tous les produits d&apos;occasion →
+              Voir tous les produits d'occasion →
             </Link>
           </div>
 
-          <Carousel className="w-full" opts={{ align: "start" }}>
+          <Carousel className="w-full" opts={{ align: "start", dragFree: true }}>
             <CarouselContent>
               {isLoading ? (
                 Array.from({ length: 5 }).map((_, i) => (
-                  <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <CarouselItem key={`skeleton-occasion-${i}`} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <CardsSkeleton />
                   </CarouselItem>
                 ))
-              ) : (occasionProducts &&
-                occasionProducts.map((product, i) => (
-                  <CarouselItem key={i} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+              ) : (
+                occasionProducts.map((product) => (
+                  <CarouselItem key={product.id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                     <Link href={product.href}>
                       <Card className="h-full border shadow-sm hover:shadow-md transition-shadow flex flex-col">
                         <CardContent className="p-4 flex-grow">
@@ -152,9 +185,8 @@ const Page = () => {
             </div>
           </Carousel>
         </section>
-
       </div>
-    </div>
+    </Layout>
   )
 }
 
